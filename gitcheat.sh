@@ -7,11 +7,12 @@ Note: stashes can be stacked. Look up stash list, apply & drop (& clear).
 DISCARD UNCOMMITED CHANGES:     git reset --hard # or git_discard
 
 DELETE UNTRACKED FILES+FOLDERS: git clean -f -d # (-f: force, -d: directories too)
+                                # or git_clean
 
 ADD CHANGE TO LAST CMT:         git add . # or add individual files
-                                git commit --amend
+                                git commit --amend # or git_amend
 
-EDIT MSG OF LAST CMT:           git commit --amend
+EDIT MSG OF LAST CMT:           git commit --amend # or git_amend
 
 UNDO LAST CMT:                  git reset HEAD~ # or git_uncommit_last
 
