@@ -1,11 +1,11 @@
 
 # load git completion for ps1
-source "~/gitgood/git-prompt.sh"
+source "${HOME}/gitgood/git-prompt.sh"
 # GIT_PS1_SHOWDIRTYSTATE=true # too slow
 
 # shortcuts
 
-alias git_cheat="~/gitgood/gitcheat.sh"
+alias git_cheat="'${HOME}/gitgood/gitcheat.sh'"
 
 alias git_discard="git reset --hard"
 alias git_uncommit_last="git reset HEAD~"
