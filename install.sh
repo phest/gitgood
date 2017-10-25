@@ -1,7 +1,4 @@
 
-echo 'git config: no autocrlf'
-git config --global core.autocrlf "false"
-
 echo 'git config: adding gitignore_global'
 git config --global core.excludesfile "~/gitgood/.gitignore_global"
 
