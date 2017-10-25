@@ -5,8 +5,7 @@ source "${HOME}/gitgood/git-prompt.sh"
 
 # shortcuts
 
-alias git_cheat="${HOME}/gitgood/gitcheat.sh"
-
+alias git_cheat="'${HOME}/gitgood/gitcheat.sh'"
 alias git_discard="git reset --hard"
 alias git_uncommit_last="git reset HEAD~"
 alias git_amend="git commit --amend"
