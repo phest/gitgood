@@ -11,6 +11,8 @@ alias git_uncommit_last="git reset HEAD~"
 alias git_amend="git commit --amend"
 alias git_commit="git commit -m"
 alias git_clean="git clean -f -d"
+alias git_log="git log --graph --oneline -U0 --submodule | grep -E '^[*| /\\]+([0-9a-f]{7} |Submodule |> |$)'
+"
 
 # this is meant to display the git status when user only presses enter on shell
 # one way I could find to do this so far is to use output from history and compare it
