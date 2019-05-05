@@ -26,7 +26,7 @@ git_amend () {
     call_git_shortcut "git commit --amend" "$@"
 }
 git_commit () {
-    call_git_shortcut "git commit -m \"$1\"" "$@"
+    call_git_shortcut "git commit -m \"$1\""
 }
 git_clean () {
     call_git_shortcut "git clean -f -d" "$@"
