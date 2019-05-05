@@ -6,13 +6,40 @@ source "${HOME}/gitgood/git-prompt.sh"
 # shortcuts
 
 alias git_cheat="'${HOME}/gitgood/gitcheat.sh'"
-alias git_discard="git reset --hard"
-alias git_uncommit_last="git reset HEAD~"
-alias git_amend="git commit --amend"
-alias git_commit="git commit -m"
-alias git_clean="git clean -f -d"
-alias git_log="git log --graph --oneline -U0 --submodule | grep -E '^[*| /\\]+([0-9a-f]{7} |Submodule |> |$)'
-"
+
+call_git_shortcut () {
+    echo "-> '$@'"
+    echo
+    eval "$@"
+}
+
+git_discard_all () {
+    call_git_shortcut "git reset --hard" "$@"
+}
+git_discard_file () {
+    call_git_shortcut "git checkout --" "$@"
+}
+git_uncommit_last () {
+    call_git_shortcut "git reset HEAD~" "$@"
+}
+git_amend () {
+    call_git_shortcut "git commit --amend" "$@"
+}
+git_commit () {
+    call_git_shortcut "git commit -m \"$1\"" "$@"
+}
+git_clean () {
+    call_git_shortcut "git clean -f -d" "$@"
+}
+git_status () {
+    call_git_shortcut "git status" $@
+}
+git_diff () {
+    call_git_shortcut "git status -v -v" $@
+}
+git_log () {
+    call_git_shortcut "git log --graph --oneline -U0 --submodule | grep -E '^[*| /\\]+([0-9a-f]{7} |Submodule |> |$)'" "$@"
+}
 
 # this is meant to display the git status when user only presses enter on shell
 # one way I could find to do this so far is to use output from history and compare it
