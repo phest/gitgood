@@ -7,9 +7,12 @@ source "${HOME}/gitgood/git-prompt.sh"
 
 alias git_cheat="'${HOME}/gitgood/gitcheat.sh'"
 
+display_command_called () {
+    echo -e "\e[33m$@\e[0m"
+}
+
 call_git_shortcut () {
-    echo "-> '$@'"
-    echo
+    display_command_called "$@"
     eval "$@"
 }
 
@@ -52,9 +55,17 @@ prompt_command () {
     if [ "$prev_history_output" != "" ]; then
         # if outputs are the same, nothing was entered
         if [ "$history_output" == "$prev_history_output" ]; then
-            echo 'git status'
-            echo ''
-            git status
+            if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+                : # This is a valid git repository (but the current working
+                    # directory may not be the top level.
+                    # Check the output of the git rev-parse command if you care)
+                display_command_called 'git status'
+                git status
+            else
+                : # this is not a git repository
+                display_command_called 'ls'
+                ls
+            fi
         fi
     fi
     prev_history_output=$history_output
